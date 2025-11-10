@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏋️ Fitness Tracker</h1>
+            <nav>
+                <button onclick="showSection('dashboard')">Dashboard</button>
+                <button onclick="showSection('activities')">Activities</button>
+                <button onclick="showSection('sleep')">Sleep</button>
+                <button onclick="showSection('profile')">Profile</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Calories</h3>
+                        <p id="total-calories">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Avg Sleep</h3>
+                        <p id="avg-sleep">0h</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Activities</h3>
+                        <p id="total-activities">0</p>
+                    </div>
+                </div>
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <ul id="activities-list"></ul>
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities" class="section">
+                <h2>Log Activity</h2>
+                <form id="activity-form">
+                    <input type="date" id="activity-date" required>
+                    <input type="text" id="activity-type" placeholder="Activity type" required>
+                    <input type="number" id="activity-duration" placeholder="Duration (min)" required>
+                    <input type="number" id="activity-calories" placeholder="Calories burned" required>
+                    <input type="number" id="activity-distance" placeholder="Distance (km)" step="0.1">
+                    <button type="submit">Add Activity</button>
+                </form>
+            </section>
+
+            <!-- Sleep Section -->
+            <section id="sleep" class="section">
+                <h2>Sleep Tracking</h2>
+                <form id="sleep-form">
+                    <input type="date" id="sleep-date" required>
+                    <input type="number" id="sleep-hours" placeholder="Sleep hours" min="0" max="24" required>
+                    <select id="sleep-quality" required>
+                        <option value="">Sleep Quality</option>
+                        <option value="1">⭐ (Poor)</option>
+                        <option value="2">⭐⭐ (Fair)</option>
+                        <option value="3">⭐⭐⭐ (Good)</option>
+                        <option value="4">⭐⭐⭐⭐ (Very Good)</option>
+                        <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                    </select>
+                    <button type="submit">Add Sleep Data</button>
+                </form>
+            </section>
+
+            <!-- Profile Section - SINGLE CORRECTED VERSION -->
+            <section id="profile" class="section">
+                <h2>User Profile</h2>
+                <form id="profile-form">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="number" id="weight" placeholder="Weight (kg)" step="0.1" required>
+                    <input type="number" id="height" placeholder="Height (cm)" step="0.1" required>
+                    <input type="number" id="age" placeholder="Age" required>
+                    <button type="submit">Create/Update Profile</button>
+                </form>
+                
+                <!-- Import from C++ Section -->
+                <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                    <h3>Data Integration</h3>
+                    <button onclick="fitnessApp.importFromCpp()" style="background: #48bb78; margin: 10px; padding: 12px 20px;">
+                        📥 Import from C++ Version
+                    </button>
+                    <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        Use Option 6 in the C++ program to export data first
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
